@@ -22,7 +22,7 @@ Dengan menggunakan binary exponentiation, proses komputasi di atas dapat direduk
 Algoritma ini bekerja dengan cara mendekomposisi eksponen (x) menjadi bilangan dalam perpangkatan 2 (biner). Kemudian proses perhitungan dilakukan dengan mengalikan masing-masing nilai basis yang sudah dipangkatkan dengan nilai dalam basis 2 tersebut. Proses ini dapat dilakukan secara rekursif maupun iteratif.  
 Secara umum, notasi $a^{b}$ dapat dituliskan dalam perpangkatan dengan eksponen dalam pangkat 2 sebagai berikut:
 
-$$\huge a^{b}\ =\ b_{0}\*a^{(2^0)}\\ *\\ b_{1}\*a^{(2^1)}\\ *\\ b_{2}\*a^{(2^2)}\\ *\\ ...\\ *\\ b_{n-1}\*a^{(2^{n-1})}$$
+$$\huge a^{b}\ =\ a^{(b_{0}\ \*\ 2^0)}\\ *\\ a^{(b_{1}\ \*\ 2^1)}\\ *\\ a^{(b_{2}\ \*\ 2^2)}\\ *\\ ...\\ *\\ a^{(b_{n-1}\ \*\ 2^{n-1})}$$
 
 - b<sub>k</sub> = nilai bit pada posisi ke-(k+1) dari kanan dari representasi biner eksponen x [k = 0, 1, 2, 3, .. n-1]  
   nilai ini bisa 0 atau 1.  
