@@ -16,13 +16,28 @@ fn pow_iter(a: i32, b: i32) -> i32 {
     let mut base = a;
     let mut exp = b;
 
+    // lakukan iterasi selama exp masih bernilai > 0
     while exp > 0 {
+        // periksa bit paling kanan pada iterasi sekarang
+        // jika bit bernilai satu maka
         if exp % 2 == 1 {
+
+            // masukkan a^(2^k) ke dalam perkalian hasil akhir
             res *= base;
         }
+
+        // jika bit tidak bernilai 1 maka jangan masukkan a^(2^k) ke dalam perkalian hasil akhir
+
+        // lakukan update base.
+        // Proses ini akan mengubah nilai base dari a^(2^0), a^(2^1), a^(2^2), a^(2^3), dan seterusnya
         base *= base;
+
+        // Berpindah ke bit selanjutnya (di sebelah kiri dari bit terkanan)
+        // Operasi ini juga bisa dilakukan dengan right shift (>>)
         exp /= 2;
     }
+
+    // kembalikan hasil akhir
     res
 }
 
