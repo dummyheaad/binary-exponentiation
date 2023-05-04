@@ -16,7 +16,7 @@ Hasil perpangkatan dihitung secara <em>naive</em> dengan cara mengalikan basis (
 $$\huge y\ =\ a\ *\ a\ *\ a\ *\ \...\ *\ a\ (x\ kali)$$
 
 Berdasarkan metode di atas terlihat bahwa terdapat x kali proses komputasi untuk menghitung nilai perpangkatan.  
-Dengan menggunakan binary exponentiation, proses kompuasi di atas dapat direduksi sehingga mampu meningkatkan utilisasi <em>resource</em> komputer serta mampu melakukan komputasi eksponen yang lebih besar dengan <em>runtime</em> yang lebih kecil.
+Dengan menggunakan binary exponentiation, proses komputasi di atas dapat direduksi sehingga mampu meningkatkan utilisasi <em>resource</em> komputer serta mampu melakukan komputasi eksponen yang lebih besar dengan <em>runtime</em> yang lebih kecil.
 
 ## Cara Kerja
 Algoritma ini bekerja dengan cara mendekomposisi eksponen (x) menjadi bilangan dalam perpangkatan 2 (biner). Kemudian proses perhitungan dilakukan dengan mengalikan masing-masing nilai basis yang sudah dipangkatkan dengan nilai dalam basis 2 tersebut. Proses ini dapat dilakukan secara rekursif maupun iteratif.  
@@ -36,25 +36,27 @@ $$\huge a^{b}\ =\ b_{0}\*a^{(2^0)}\\ *\\ b_{1}\*a^{(2^1)}\\ *\\ b_{2}\*a^{(2^2)}
 - b = eksponen
   nilai b dinyatakan dalam notasi biner, yaitu b = b<sub>n-1</sub>b<sub>n-2</sub>b<sub>n-3</sub> ... b<sub>0</sub>
 
-Contoh: Berapakah hasil dari $5^{5}$ ?  
+Contoh: Berapakah hasil dari $5^{7}$ ?  
 
 Implementasi Rekursif:
 - Recursive Call
-$$\huge 5^{5}\ =\ 5^{1}\ *\ 5^{2}\ *\ 5^{2}$$
+$$\huge 5^{7}\ =\ 5^{1}\ *\ 5^{3}\ *\ 5^{3}$$
+$$\huge 5^{3}\ =\ 5^{1}\ *\ 5^{2}$$
 $$\huge 5^{2}\ =\ 5^{1}\ *\ 5^{1}$$
 $$\huge 5^{1}\ =\ 5$$
 
 - Backtracking
 $$\huge 5^{1}\ =\ 5$$
 $$\huge 5^{2}\ =\ 5^{1}\ *\ 5^{1}\ =\ 25$$
-$$\huge 5^{5}\ =\ 5^{1}\ *\ 5^{2}\ *\ 5^{2} =\ 5\ *\ 25 *\ 25\ =\ 3125$$
+$$\huge 5^{3}\ =\ 5^{1}\ *\ 5^{2} =\ 5\ *\ 25\ =\ 125$$
+$$\huge 5^{7}\ =\ 5^{1}\ *\ 5^{3}\ *\ 5^{3} =\ 5\ *\ 125\ *\ 125\ =\ 78125$$
 
 Implementasi Iteratif:  
-x = 5 -> 101 (dalam notasi biner)  
-Terlihat bahwa $5^5$ dapat dihitung dengan mengalikan nilai $5^1$ dan $5^4$  
+x = 7 -> 111 (dalam notasi biner)  
+Terlihat bahwa $5^7$ dapat dihitung dengan mengalikan nilai $5^1$, $5^2$, dan $5^4$  
 Atau dalam notasi eksponen dalam perpangkatan 2 dapat dituliskan menjadi:
 
-$$\huge 5^5\ =\ 5^{(2^0)}\ *\ 5^{(2^2)}$$
+$$\huge 5^7\ =\ 5^{(2^0)}\ *\ 5^{(2^1)}\ *\ 5^{(2^2)}$$
 
 Proses iterasi:
   - Mulai dari bit paling kanan, lakukan pengecekan nilai bit dengan melakukan operasi modulo antara nilai eksponen dengan 2.
