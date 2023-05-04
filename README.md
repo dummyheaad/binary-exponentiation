@@ -63,3 +63,4 @@ Proses iterasi:
   - Pindah ke bit selanjutnya dengan cara membagi nilai eksponen dengan 2 atau melakukan operasi right-shift sebanyak 1 kali
   - Lakukan lagi pengecekan bit dengan melakukan operasi modulo antara nilai eksponen (yang sudah dimodifikasi) dengan 2.
   - Ulangi proses yang sama sampai diperoleh nilai eksponen = 0
+  - Kembalikan hasil akhir, yaitu hasil dari $a^{b}$
